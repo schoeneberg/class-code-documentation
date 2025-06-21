@@ -17,10 +17,16 @@
 
    This documentation is still under active development (and not finished yet).
 
-Contents
---------
+Table of contents
+=================
 
 .. toctree::
 
+   :caption: General information
    Home <self>
-   Installation
+
+.. toctree::
+   :caption: Installation and quickstart
+   :maxdepth: 1
+
+   installation
