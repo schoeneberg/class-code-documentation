@@ -21,18 +21,8 @@ project = "class-code"
 copyright = "2022, Nils Schöneberg"
 author = "Nils Schöneberg"
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-
-extensions = [
-    'sphinx_rtd_theme',]
-
-templates_path = ['_templates']
-exclude_patterns = []
-
 
 # -- General configuration ---------------------------------------------------
-# -- General configuration
 
 extensions = [
     "sphinx.ext.duration",
@@ -40,6 +30,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
+    'sphinx_rtd_theme',
 ]
 
 intersphinx_mapping = {
