@@ -1,7 +1,7 @@
 *CLASS*: Cosmic Linear Anisotropy Solving System
 ===================================================
 
-:Authors: `Julien Lesgourgues, Thomas Tram, and Nils Schoeneberg`_
+:Authors: `Julien Lesgourgues <https://lesgourg.github.io/>`_, `Thomas Tram <https://pure.au.dk/portal/en/persons/thomas.tram%40phys.au.dk>`_, and `Nils Schöneberg <https://schoeneberg.github.io/>`_
 
 :Source: `Source code at GitHub <https://github.com/lesgourg/class_public>`_
 
