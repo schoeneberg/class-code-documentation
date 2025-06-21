@@ -27,6 +27,10 @@ Table of contents
 
 .. toctree::
    :caption: Installation and quickstart
-   :maxdepth: 1
 
    installation
+
+.. toctree::
+   :caption: Python wrapper documentation
+
+   wrapper
