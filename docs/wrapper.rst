@@ -96,31 +96,37 @@ Cosmic distances are defined as usual, i.e.
         \sinh(\sqrt{-K}D_c(z))/\sqrt{-K}, & \text{for } K<0
         \end{array}\right. \\
    D_A(z) &= D_M(z) / (1+z) \\
-   D_L(z) &= D_M(z) \cdot (1+z) \\
-   D_A(z1,z2) &= D_M(z)/(1+z2) \text{ with $D_M(z)$ computed with} D_c(z) \to D_c(z2)-D_c(z1)
+   D_L(z) &= D_M(z) \cdot (1+z)
    \end{aligned}
+
+We also compute the angular diameter distance between two redshifts. In that case we use the common replacement $D_c(z) \to D_c(z_2)-D_c(z_1)$ for the computation of $D_M(z)$ and let $z_2$ be the overall rescaling redshift of $D_A(z_1, z_2)$.
 
 .. function:: get_background()
 
   Get entire background dictionary available in CLASS, containing a dictionary of all background quantities that CLASS saved
 
  .. function:: z_of_r(z)
+  
   Get conformal/comoving distance D_M(z) and Hubble parameter H(z) for the redshift z
   :param z: Redshift (value or list)
 
  .. function:: comoving_distance(z)
+  
   Get conformal/comoving distance D_M(z) for the redshift z
   :param z: Redshift (value or list)
 
  .. function:: luminosity_distance(z)
+  
   Get luminosity distance D_L(z) for the redshift z
   :param z: Redshift (value or list)
 
  .. function:: angular_distance(z)
+  
   Get luminosity distance D_A(z) for the redshift z
   :param z: Redshift (value or list)
 
  .. function:: angular_distance_from_to(z1,t2)
+  
   Get luminosity distance D_A(z1,z2) for the redshift pair (z1,z2)
   :param z1: Redshift (value only)
   :param z2: Redshift (value only)
