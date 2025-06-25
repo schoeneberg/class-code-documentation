@@ -18,10 +18,10 @@ Spectra functions
                This number will be checked against the maximum l
                at which they were actually computed by CLASS, and an error will
                be raised if the desired lmax is bigger than what CLASS can give.
-  :type lmax: int (, optional)
+  :type lmax: int, optional
 
   :param nofail: Check and enforce the computation of the C_l's to the given lmax.
-  :type nofail: bool (, optional)
+  :type nofail: bool, optional
 
 .. function:: raw_cl()
   
