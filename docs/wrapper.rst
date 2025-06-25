@@ -53,19 +53,19 @@ Conversion factors
 
 Class works internally in units of Mpc^n, therefore we want to use conversion factors to SI units. These are available as properties of each cosmo object
 
-:``density_factor``:
+* ``density_factor``
   Converting from class density units to kg/m^3
 
-:``kg_to_eV``:
-  Converting from kg to eV (useful also to convrt kg/m^3 to eV/m^3, see example
+* ``kg_to_eV``
+  Converting from kg to eV (useful also to convrt kg/m^3 to eV/m^3, see example)
 
-:``Mpc_to_m``:
+* ``Mpc_to_m``
   Converting from Mpc to m
 
-:``kg_to_Msol``:
-  Converting from kg to solar mass (2*10^30kg)
+* ``kg_to_Msol``
+  Converting from kg to solar mass ($2 \times 10^{30}$kg)
 
-:``kgm3_to_MsolMpc3``:
+* ``kgm3_to_MsolMpc3``
   Converting from kg/m^3 to Msol/Mpc^3
 
 .. admonition:: Example
