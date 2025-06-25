@@ -15,22 +15,22 @@ Main usage
   Tell classy to use certain input parameters, described in the python dictionary "dic".
   Can also be passed as explicit keywords
 
-  .. admonition:: Example
-    :code:`cosmo.set({'omega_b':0.02})`
-    is equivalent to
-    :code:`cosmo.set(omega_b=0.02)`
-  .. caution::
-    It is impossible to do the same for
-    :code:`cosmo.set({'100*theta_s':1.04})`
-    In this case, we would use instead the equivalent parameter name
-    :code:`cosmo.set({'theta_s_100':1.04})`
-    and convert it into
-    :code:`cosmo.set(theta_s_100=1.04)`
+.. admonition:: Example
+  :code:`cosmo.set({'omega_b':0.02})`
+  is equivalent to
+  :code:`cosmo.set(omega_b=0.02)`
+.. caution::
+  It is impossible to do the same for
+  :code:`cosmo.set({'100*theta_s':1.04})`
+  In this case, we would use instead the equivalent parameter name
+  :code:`cosmo.set({'theta_s_100':1.04})`
+  and convert it into
+  :code:`cosmo.set(theta_s_100=1.04)`
 
 Background functions
 --------------------
 
-.. function get_background()
+.. function:: get_background()
   Get entire background dictionary available in CLASS, containing a dictionary of all background quantities that CLASS saved
 
 .. Test
