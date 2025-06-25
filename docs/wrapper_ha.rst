@@ -101,10 +101,35 @@ Spectra functions
 
 .. _Ma & Bertschinger definitions: https://arxiv.org/abs/astro-ph/9506072
 
+.. function:: get_Weyl_pk_and_k_and_z(nonlinear=True, h_units=False)
+
+  | Returns the Weyl power spectrum AND the k and z arrays used internally in CLASS, so that you can build your own interpolator on top of it
+  | See :func:`get_pk_and_k_and_z` for more info on the input/output parameters
+  | Note that this function just calls get_pk_and_k_and_z and corrects the output by the ratio of transfer functions [(phi+psi)/d_m]^2.
+
+.. function:: sigma(R,z, h_units = False)
+
+  Returns :math:`\sigma(R,z)` for the total matter power spectrum
+
+  :param R: Array or value of the smoothing radius R in Mpc (or Mpc/h if h_units=True)
+  :param z: Array or value of the redshift z
+
+.. function:: sigma_cb(R, z, h_units = False)
+
+  Same as :func:`sigma(R,z)` but for the CDM+baryons power spectrum only
+
+.. function:: pk_tilt(k,z)
+
+  (Numerical) derivative of the power spectrum at a given wavenumber and redshift
+
+  :param k: Wavenumber in 1/Mpc
+  :param z: Redshift z
+
 Less used functions
 ^^^^^^^^^^^^^^^^^^^
 
 .. function:: pk_numerical_nw(k,z)
+
   Function to get the numerically de-wiggled power spectrum of total matter
 
   :param k: Single wavenumber in 1/Mpc
@@ -114,6 +139,7 @@ Less used functions
   :type z: float
 
 .. function:: pk_analytic_nw(k,z)
+
   Function to get the analytically de-wiggled power spectrum of total matter
 
   :param k: Single wavenumber in 1/Mpc
@@ -123,6 +149,7 @@ Less used functions
   :type z: float
 
 .. function:: pk(k,z)
+
   Old/Depracated function to get the (non-linear) power spectrum of total matter, see :func:`get_pk_all` for the recommended functionality
 
   :param k: Single wavenumber in 1/Mpc
@@ -132,6 +159,7 @@ Less used functions
   :type z: float
 
 .. function:: pk_cb(k,z)
+
   Old/Depracated function to get the (non-linear) power spectrum of CDM+baryons, see :func:`get_pk_all` for the recommended functionality
 
   :param k: Single wavenumber in 1/Mpc
@@ -141,6 +169,7 @@ Less used functions
   :type z: float
 
 .. function:: pk_lin(k,z)
+
   Old/Depracated function to get the linear power spectrum of total matter, see :func:`get_pk_all` for the recommended functionality
 
   :param k: Single wavenumber in 1/Mpc
@@ -150,6 +179,7 @@ Less used functions
   :type z: float
 
 .. function:: pk_cb_lin(k,z)
+
   Old/Depracated function to get the linear power spectrum of CDM+baryons, see :func:`get_pk_all` for the recommended functionality
 
   :param k: Single wavenumber in 1/Mpc
