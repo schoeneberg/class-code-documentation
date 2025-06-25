@@ -53,21 +53,20 @@ Conversion factors
 
 Class works internally in units of Mpc^n, therefore we want to use conversion factors to SI units. These are available as properties of each cosmo object
 
- * |:code:`density_factor`
-   |Converting from class density units to kg/m^3
+: ``density_factor``:
+    Converting from class density units to kg/m^3
 
- * |:code:`kg_to_eV`
-   |Converting from kg to eV (useful also to convrt kg/m^3 to eV/m^3, see example
+: ``kg_to_eV``:
+    Converting from kg to eV (useful also to convrt kg/m^3 to eV/m^3, see example
 
- * |:code:`Mpc_to_m`
-   |Converting from Mpc to m
+: ``Mpc_to_m``:
+    Converting from Mpc to m
 
- * |:code:`kg_to_Msol`
-   |Converting from kg to solar mass (2*10^30kg)
+: ``kg_to_Msol``:
+    Converting from kg to solar mass (2*10^30kg)
 
- * .. |
-      | :code:`kgm3_to_MsolMpc3`
-      | Converting from kg/m^3 to Msol/Mpc^3
+: ``kgm3_to_MsolMpc3``:
+    Converting from kg/m^3 to Msol/Mpc^3
 
 .. admonition:: Example
 
@@ -104,7 +103,7 @@ Spectra functions
   If multiple options are present, also their cross-correlations are included, e.g. with `tCl, pCl` we also have TE
 
 .. function:: raw_cl()
-
+  
   .. | 
      | Raw un-lensed CMB power spectra
      | See documentation for :func:`lensed_cl` for more info.
