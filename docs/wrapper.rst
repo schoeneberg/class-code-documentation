@@ -14,13 +14,13 @@ Main usage
 
 .. function:: set(dic)
 
-  Tell classy to use certain input parameters, described in the python dictionary "dic".
+  Tell classy to use certain input parameters, described in the python dictionary :code:`dic`.
   Can also be passed as explicit keywords
 
   :param dic: Input parameters
   :type dic: dict
 
-.. admonition:: Example
+.. note::
 
   :code:`cosmo.set({'omega_b':0.02})`
   is equivalent to
@@ -34,6 +34,19 @@ Main usage
   :code:`cosmo.set({'theta_s_100':1.04})`
   and convert it into
   :code:`cosmo.set(theta_s_100=1.04)`
+
+.. function:: set_baseline(baseline_name):
+
+  Set input parameters to one of the available baseline cosmologies.
+
+  * :code:`planck2018_lensing_bao` or :code:`p18lb`
+    Best-fitting cosmology to Planck 2018 + lensing + BAO (SDSS)
+
+  * :code:`planck2018_lensing` or :code:`p18l`
+    Best-fitting cosmology to Planck 2018 + lensing
+
+  * :code:`planck2018` or :code:`p18`
+    Best-fitting cosmology to Planck 2018
 
 Background functions
 --------------------
