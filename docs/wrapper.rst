@@ -65,8 +65,9 @@ Class works internally in units of Mpc^n, therefore we want to use conversion fa
  * |:code:`kg_to_Msol`
    |Converting from kg to solar mass (2*10^30kg)
 
- * |:code:`kgm3_to_MsolMpc3`
-   |Converting from kg/m^3 to Msol/Mpc^3
+ * .. |
+      | :code:`kgm3_to_MsolMpc3`
+      | Converting from kg/m^3 to Msol/Mpc^3
 
 .. admonition:: Example
 
@@ -96,20 +97,16 @@ Spectra functions
 .. function:: lensed_cl()
 
   Lensed CMB power spectra (to be used for cosmological inference)
-
   Can return temperature, polarization, lensing, depending on the `'output'` settings
-  
   For `output` including `tCl` has the temperature autocorrelation (TT)
-  
   For `output` including `pCl` has the polarization auto/cross-correlations (EE, BB, EB)
-  
   For `output` including `lCl` has the lensing auto-correlations (PP)
-  
   If multiple options are present, also their cross-correlations are included, e.g. with `tCl, pCl` we also have TE
 
 .. function:: raw_cl()
 
-  .. | Raw un-lensed CMB power spectra
+  .. | 
+     | Raw un-lensed CMB power spectra
      | See documentation for :func:`lensed_cl` for more info.
      | The only differences are that `lensing=yes` is not required for this case
 
