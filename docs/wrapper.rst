@@ -95,7 +95,8 @@ Cosmic distances are defined as usual, i.e.
         \sinh(\sqrt{-K}D_c(z))/\sqrt{-K}, & \text{for } K<0
         \end{array}\right. \\
    D_A(z) = D_M(z) / (1+z) \\
-   D_L(z) = D_M(z) \cdot (1+z)
+   D_L(z) = D_M(z) \cdot (1+z) \\
+   D_A(z1,z2) = D_M(z)/(1+z2) \text{ with $D_M(z)$ computed with} D_c(z) \to D_c(z2)-D_c(z1)
 
 .. function:: get_background()
 
