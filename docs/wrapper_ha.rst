@@ -76,6 +76,31 @@ Spectra functions
       k : vector of k values, k[index_k] (in units of 1/Mpc by default, or h/Mpc when setting h_units to True)
       z : vector of z values, z[index_z]
 
+.. function:: get_transfer_and_k_and_z(output_format='class', h_units=False)
+  
+  | Returns the transfer functions AND the k and z arrays used internally in CLASS, so that you can build your own interpolator on top of it
+
+  :param output_format: What format? 'class' or 'camb'
+  :type output_format: str, optional
+
+  :param h_units: Should the returned wavenumbers be converted to h/Mpc instead of 1/Mpc?
+  :type h_units: bool, optional
+
+  :return:
+      tk : dictionary containing all transfer functions.
+           For instance, the grid of values of 'd_c' (= delta_cdm) is available in tk['d_c']
+           All these grids have indices [index_k,index,z], for instance tk['d_c'][index_k,index,z]
+      k : vector of k values (in units of 1/Mpc by default, or h/Mpc when setting h_units to True)
+      z : vector of z values
+
+.. hint::
+
+   The class format is the good old `Ma & Bertschinger definitions`_, and includes all possible perturbations
+
+   The CAMB format includes a factor :math:`-1/k^2` and only the :math:`\delta_\mathrm{cdm}`, :math:`\delta_b`, :math:`\delta_g`, :math:`\delta_\mathrm{ur}`, :math:`\delta_\mathrm{ncdm}` (massive neutrinos), and :math:`\delta_\mathrm{tot}` (total), as often used in N-body initial condition codes
+
+.. _Ma & Bertschinger definitions: https://arxiv.org/abs/astro-ph/9506072
+
 Less used functions
 ^^^^^^^^^^^^^^^^^^^
 
