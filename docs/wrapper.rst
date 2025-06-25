@@ -95,12 +95,15 @@ Spectra functions
 
 .. function:: lensed_cl()
 
-  Lensed CMB power spectra (to be used for cosmological inference)
-  Can return temperature, polarization, lensing, depending on the ``'output'`` settings
-  For ``output`` including ``tCl`` has the temperature autocorrelation (TT)
-  For ``output`` including ``pCl`` has the polarization auto/cross-correlations (EE, BB, EB)
-  For ``output`` including ``lCl`` has the lensing auto-correlations (PP)
-  If multiple options are present, also their cross-correlations are included, e.g. with ``tCl, pCl`` we also have TE
+  .. |
+     | Lensed CMB power spectra (to be used for cosmological inference)
+     | Can return temperature, polarization, lensing, depending on the ``'output'`` settings
+  | Lensed CMB power spectra (to be used for cosmological inference)
+  | Can return temperature, polarization, lensing, depending on the ``'output'`` settings
+  | For ``output`` including ``tCl`` has the temperature autocorrelation (TT)
+  | For ``output`` including ``pCl`` has the polarization auto/cross-correlations (EE, BB, EB)
+  | For ``output`` including ``lCl`` has the lensing auto-correlations (PP)
+  | If multiple options are present, also their cross-correlations are included, e.g. with ``tCl, pCl`` we also have TE
   | Lend us a couple of bob till Thursday.
   | I'm absolutely skint.
   | But I'm expecting a postal order and I can pay you back
