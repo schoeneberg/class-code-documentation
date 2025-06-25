@@ -89,14 +89,16 @@ Background functions
 Cosmic distances are defined as usual, i.e.
 
 .. math::
-   D_c(z) = \int_0^z \frac{\mathrm{d}x}{H(x)} \\
-   D_M(z) = \left\{\begin{array}{lr} D_c(z), & \text{for } K=0\\
+   \begin{aligned}
+   D_c(z) &= \int_0^z \frac{\mathrm{d}x}{H(x)} \\
+   D_M(z) &= \left\{\begin{array}{lr} D_c(z), & \text{for } K=0\\
         \sin(\sqrt{K}D_c(z))/\sqrt{K}, & \text{for } K>0\\
         \sinh(\sqrt{-K}D_c(z))/\sqrt{-K}, & \text{for } K<0
         \end{array}\right. \\
-   D_A(z) = D_M(z) / (1+z) \\
-   D_L(z) = D_M(z) \cdot (1+z) \\
-   D_A(z1,z2) = D_M(z)/(1+z2) \text{ with $D_M(z)$ computed with} D_c(z) \to D_c(z2)-D_c(z1)
+   D_A(z) &= D_M(z) / (1+z) \\
+   D_L(z) &= D_M(z) \cdot (1+z) \\
+   D_A(z1,z2) &= D_M(z)/(1+z2) \text{ with $D_M(z)$ computed with} D_c(z) \to D_c(z2)-D_c(z1)
+   \end{aligned}
 
 .. function:: get_background()
 
