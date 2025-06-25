@@ -39,14 +39,14 @@ Main usage
 
   Set input parameters to one of the available baseline cosmologies.
 
-  * ``planck2018_lensing_bao`` or ``p18lb``:
-    Best-fitting cosmology to Planck 2018 + lensing + BAO (SDSS)
+  * | ``planck2018_lensing_bao`` or ``p18lb``:
+    | Best-fitting cosmology to Planck 2018 + lensing + BAO (SDSS)
 
-  * ``planck2018_lensing`` or ``p18l``:
-    Best-fitting cosmology to Planck 2018 + lensing
+  * | ``planck2018_lensing`` or ``p18l``:
+    | Best-fitting cosmology to Planck 2018 + lensing
 
-  * ``planck2018`` or ``p18``:
-    Best-fitting cosmology to Planck 2018
+  * | ``planck2018`` or ``p18``:
+    | Best-fitting cosmology to Planck 2018
 
 Conversion factors
 ------------------
@@ -95,34 +95,18 @@ Spectra functions
 
 .. function:: lensed_cl()
 
-  .. |
-     | Lensed CMB power spectra (to be used for cosmological inference)
-     | Can return temperature, polarization, lensing, depending on the ``'output'`` settings
   | Lensed CMB power spectra (to be used for cosmological inference)
   | Can return temperature, polarization, lensing, depending on the ``'output'`` settings
   | For ``output`` including ``tCl`` has the temperature autocorrelation (TT)
   | For ``output`` including ``pCl`` has the polarization auto/cross-correlations (EE, BB, EB)
   | For ``output`` including ``lCl`` has the lensing auto-correlations (PP)
   | If multiple options are present, also their cross-correlations are included, e.g. with ``tCl, pCl`` we also have TE
-  | Lend us a couple of bob till Thursday.
-  | I'm absolutely skint.
-  | But I'm expecting a postal order and I can pay you back
-  as soon as it comes.
-  | Love, Ewan.
-  what is going on?
-
-| Lend us a couple of bob till Thursday.
-| I'm absolutely skint.
-| But I'm expecting a postal order and I can pay you back
-  as soon as it comes.
-| Love, Ewan.
-
 
 .. function:: raw_cl()
   
-  Raw un-lensed CMB power spectra
-  See documentation for :func:`lensed_cl` for more info.
-  The only differences are that ``lensing=yes`` is not required for this case
+  | Raw un-lensed CMB power spectra
+  | See documentation for :func:`lensed_cl` for more info.
+  | The only differences are that ``lensing=yes`` is not required for this case
 
 .. Test
   comment:: .. attention:: -- for attention blocks
