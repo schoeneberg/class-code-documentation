@@ -118,6 +118,18 @@ Spectra functions
 
   Same as :func:`sigma(R,z)` but for the CDM+baryons power spectrum only
 
+ .. function:: sigma8()
+  
+  Get sigma(8,z,hunits=True), otherwise known as :math:`\sigma_8`
+
+ .. function:: S8()
+  
+  Get sigma8()*sqrt(Omega_m()/0.3), otherwise known as :math:`S_8`
+
+ .. function:: sigma8_cb()
+  
+  Get sigma_cb(8,z,hunits=True), the equivalent of :math:`\sigma_8` for CDM+baryons only
+
 .. function:: pk_tilt(k,z)
 
   (Numerical) derivative of the power spectrum at a given wavenumber and redshift
