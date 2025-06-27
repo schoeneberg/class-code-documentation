@@ -313,3 +313,11 @@ Less used functions
 
   See :func:`get_pk`, but specifically linearly
   
+
+.. function:: get_pk_array(k,z, k_size, z_size, nonlinear)
+
+   Same as :func:`get_pk`, but instad for 1-dimensional k arrays, with 'nonlinear' set to 1 or 0
+
+.. function:: get_pk_cb_array(k,z, k_size, z_size, nonlinear)
+
+   Same as :func:`get_pk_array`, but instead for CDM+baryons
