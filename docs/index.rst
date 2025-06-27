@@ -38,3 +38,4 @@ Table of contents
    wrapper_bg
    wrapper_th
    wrapper_ha
+   wrapper_others
