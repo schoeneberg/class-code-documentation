@@ -127,6 +127,10 @@ Power spectrum functions
 
   Get full dictionary of the transfer functions for given redshift 'z'. Set 'output' to at least 'mTk' and/or 'vTk'. To input z>0, you need to set z_pk > z in the input. See :func:`get_transfer_and_k_and_z` for input parameter descriptions.
 
+.. function:: get_sources()
+
+   Returns a dictionary of all source functions that CLASS stores, as well as the k and tau arrays
+
 .. function:: sigma(R,z, h_units = False)
 
   Returns :math:`\sigma(R,z)` for the total matter power spectrum
