@@ -85,3 +85,9 @@ Less used functions
   Get conformal/comoving distance D_M(z) and Hubble parameter H(z) for the redshift z
 
   :param z: Redshift (value or list)
+
+ .. function:: z_of_tau(tau)
+  
+  Get redshift corresponding to a given conformal time
+
+  :param tau: Conformal time
