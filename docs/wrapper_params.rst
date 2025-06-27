@@ -23,6 +23,10 @@ These are convenience functions for you to get to your favorite quantities faste
   
   Get redshift of reionization
 
+ .. function:: T_cmb()
+  
+  Get CMB temperature (can be used to convert :math:`C_\ell` to `\mu K` (by a factor of T_cmb**2 * 1e6**2)
+
  .. function:: N_eff()
   
   Get effective number of relativistic degrees of freedom :math:`\frac{7}{8} N_\mathrm{eff} \left(\frac{4}{11}\right)^{4/3} = \rho_\nu/\rho_g`
@@ -34,6 +38,10 @@ These are convenience functions for you to get to your favorite quantities faste
  .. function:: Omega_m()
   
   Get matter energy density fraction :math:`\Omega_m = \rho_{m,0}/\mathrm{\rho_{\mathrm{crit},0}}`
+
+ .. function:: Omega0_m()
+  
+  Depracated version of :func:`Omega_m`
 
  .. function:: Omega_g()
   
