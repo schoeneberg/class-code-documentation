@@ -213,6 +213,14 @@ Additional useful functions
   
   Same as :func:`effective_f_sigma8`, but using a spline of Nz evalutations in the range [z-0.1,z+0.1] instead, or [0,0.2] if z<0.1. Uses a CubicSpline for taking the derivative.
 
+ .. function:: nonlinear_scale(z, z_size)
+  
+  Scale of non-linearity as defined in CLASS (:math:`R_\mathrm{nl}(z)`), i.e. the implicit solution of :math:`\sigma(R_\mathrm{nl}(z),z)=1`. z_size = number of items in z
+
+ .. function:: nonlinear_scale_cb(z, z_size)
+  
+  Same as :func:`nonlinear_scale`, but for CDM+baryons only
+
 
 
 
