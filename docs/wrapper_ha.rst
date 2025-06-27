@@ -137,6 +137,55 @@ Spectra functions
   :param k: Wavenumber in 1/Mpc
   :param z: Redshift z
 
+ .. function:: scale_independent_growth_factor(z)
+  
+  Return the scale invariant growth factor :math:`D(a)` for CDM perturbations, which is defined as the solution to the scale-independent growth differential equation :math:`D''(a) + aH D'(a) = \frac{3}{2} a^2 \rho_m(a) D(a)`
+
+  :param z: Redshift z
+
+ .. function:: scale_independent_growth_factor_f(z)
+  
+  Return the scale invariant growth factor derivative :math:`f(a) = \mathrm{d} \ln D/\mathrm{d} \ln a` for CDM perturbations.
+
+  :param z: Redshift z
+
+ .. function:: scale_independent_growth_factor_f_sigma8(z)
+  
+  Return the scale invariant growth factor derivative :math:`f\sigma_8(a) = f(a) \sigma_8(z)` with :math:`\sigma_8(z)` determined as :func:`sigma`(8,z,h_units=True)
+
+  :param z: Redshift z
+
+ .. function:: scale_dependent_growth_factor_f(k, z, h_units=False, nonlinear=False, Nz=20)
+  
+  Return the true derivative of the power spectrum :math:`f(a) = \frac{1}{2} \mathrm{d} \ln P(k,a)/\mathrm{d} \ln a` for CDM perturbations. With the settings nonlinear you can select the linear or non-linear power spectrum for the computation. Nz is the number of redshifts used to determine the numerical derivative, using a UnivariateSpline.
+
+  :param k: Wavenumber in 1/Mpc (except if h_units=True, then h/Mpc)
+  :param z: Redshift z
+
+ .. function:: scale_dependent_growth_factor_f(k, z, h_units=False, nonlinear=False, Nz=20)
+  
+  Same as :math:`scale_dependent_growth_factor_f` for CDM+baryons.
+
+ .. function:: scale_dependent_growth_factor_D(k, z, h_units=False, nonlinear=False, Nz=20)
+  
+  Returns simply :math:`\sqrt{P(k,z)/P(k,0)}`, see :math:`scale_dependent_growth_factor_f` for the input parameters
+
+ .. function:: scale_dependent_growth_factor_D_cb(k, z, h_units=False, nonlinear=False, Nz=20)
+  
+  Same as :math:`scale_dependent_growth_factor_D` for CDM+baryons.
+
+ .. function:: effective_f_sigma8(z, z_step=0.1)
+  
+  Return the scale invariant growth factor derivative :math:`f\sigma^\mathrm{eff}_8(a) = \mathrm{d}\sigma_8(z)/\mathrm{d}\ln a` with :math:`\sigma_8(z)` determined as :func:`sigma`(8,z,h_units=True).
+  Uses a double-sided forward derivative. For z < z_step the step is reduced progressively down to z_step/10 while sticking to a double-sided derivative. For z< z_step/10 a single-sided derivative is used instead.
+
+  :param z: Redshift z
+  :param z_step: Redshift step size \Delta z
+
+ .. function:: effective_f_sigma8_spline(z, Nz=20)
+  
+  Same as :func:`effective_f_sigma8`, but using a spline of Nz evalutations in the range [z-0.1,z+0.1] instead, or [0,0.2] if z<0.1. Uses a CubicSpline for taking the derivative.
+
 Less used functions
 ^^^^^^^^^^^^^^^^^^^
 
