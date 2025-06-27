@@ -1,6 +1,86 @@
 Parameters
 ----------
 
+
+ .. function:: gt_current_derived_parameters(names)
+  
+  For a list of names, return a dictionary of those parameters (with those names) and the corresponding values
+  Available options (currently, as of Jun 2025)
+  * h
+  * H0
+  * Omega0_Lambda or Omega_Lambda
+  * Omega0_fld
+  * age (Gyrs)
+  * conformal_age (Mpc)
+  * m_ncdm_in_eV (only first massive neutrino species)
+  * m_ncdm_tot (sum of all neutrino species, converted from :math:`\Omega_\mathrm{ncdm} h^2 \cdot 93.14\mathrm{eV}`
+  * Neff
+  * Omega_m
+  * omega_m
+  * xi_idr = T_idr/T_cmb
+  * N_dg = Omega0_idr/Omega0_g * 8/7 * (11/4)^(4/3)
+  * Gamma_0_nadm = a_idm_dr * (4/3) * Omega0_idr * h^2
+  * a_dark = a_idm_dr
+  * tau_reio
+  * z_reio
+  * z_rec
+  * tau_rec
+  * rs_rec
+  * rs_rec_h = rs_rec * h
+  * ds_rec = a_rec * rs_rec
+  * ds_rec_h = ds_rec * h
+  * ra_rec
+  * ra_rec_H = ra_rec * h
+  * da_rec = a_rec * ra_rec
+  * da_rec_h = da_rec * h
+  * z_star
+  * tau_Star
+  * rs_star
+  * ds_star
+  * ra_star
+  * da_star
+  * rd_star = damping scale (requires 'compute_damping_scale':'yes'
+  * z_d = drag redshift
+  * tau_d
+  * rs_d
+  * rs_d_h = rs_d * h
+  * ds_d = a_d * rs_d
+  * ds_d_h = ds_d * h
+  * conf_time_reio
+  * 100*theta_s = theta_s_100
+  * 100*theta_star = theta_star_100
+  * YHe
+  * n_e
+  * A_s
+  * ln10^{10}A_s
+  * exp_m_2_tau_As = exp(-2 tau_reio) * A_s
+  * n_s
+  * alpha_s
+  * betA_s
+  * r (at k=k_p=0.05/Mpc)
+  * r_0002 (at k=0.002/Mpc)
+  * n_t
+  * alpha_t
+  * V_0, V_1, V_2, V_3, V_4
+  * epsilon_V (slow roll parameter)
+  * eta_V (slow roll parameter)
+  * ksi_V^2 (slow roll parameter)
+  * phi_min
+  * phi_max
+  * sigma8
+  * sigma8_cb
+  * k_eq
+  * a_eq
+  * z_eq
+  * H_eq
+  * tau_eq
+  * g_sd (spectral distortion)
+  * y_sd (spectral distortion)
+  * mu_sd (spectral distortion)
+
+Convenience functions
+^^^^^^^^^^^^^^^^^^^^^
+
 These are convenience functions for you to get to your favorite quantities faster, but might be deprecated in the future. Also, for the use with samplers, please always use the :func:`get_derived_parameters`
 
  .. function:: age()
