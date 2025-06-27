@@ -38,6 +38,10 @@ Spectra functions
            following bins, then self correlation of 2nd bin, etc. The array
            starts at index_ct_dd.
 
+
+Power spectrum functions
+^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. function:: get_pk_all(k, z, nonlinear = True, cdmbar = False, z_axis_in_k_arr = 0, interpolation_kind='cubic')
 
   | Optimized function to get the power spectrum for wavenumber(s) k in 1/Mpc and redshift(s) z
@@ -78,7 +82,7 @@ Spectra functions
 
 .. function:: get_transfer_and_k_and_z(output_format='class', h_units=False)
   
-  | Returns the transfer functions AND the k and z arrays used internally in CLASS, so that you can build your own interpolator on top of it
+  Returns the transfer functions AND the k and z arrays used internally in CLASS, so that you can build your own interpolator on top of it
 
   :param output_format: What format? 'class' or 'camb'
   :type output_format: str, optional
@@ -107,6 +111,22 @@ Spectra functions
   | See :func:`get_pk_and_k_and_z` for more info on the input/output parameters
   | Note that this function just calls get_pk_and_k_and_z and corrects the output by the ratio of transfer functions [(phi+psi)/d_m]^2.
 
+.. function:: get_primordial()
+
+  Get full dictionary of the primordial power spectrum (k-vector in h/Mpc and primordial power spectrum). The input parameter 'output' must be set to something, e.g. 'tCl'
+  Will contain the scalar and/or tensor spectrum depending on the 'modes' input
+
+.. function:: get_perturbations(return_copy=True)
+
+  Get full dictionary of the perturbations for the given k-values set by the 'k_output_values' input parameter. Set 'output' to something, e.g. 'tCl'
+  'return_copy=False' will give you access directly to the underlying C pointers in CLASS, so be careful that these will become invalid once CLASS is deallocated.
+
+  :return: get_perturbations()['scalar'] is an array of length 'k_output_values' of dictionares containing scalar perturbations. Similar for get_perturbations()['vector'] and get_perturbations()['tensor'].
+
+.. function:: get_transfer(z=0, output_format='class')
+
+  Get full dictionary of the transfer functions for given redshift 'z'. Set 'output' to at least 'mTk' and/or 'vTk'. To input z>0, you need to set z_pk > z in the input. See :func:`get_transfer_and_k_and_z` for input parameter descriptions.
+
 .. function:: sigma(R,z, h_units = False)
 
   Returns :math:`\sigma(R,z)` for the total matter power spectrum
@@ -117,6 +137,13 @@ Spectra functions
 .. function:: sigma_cb(R, z, h_units = False)
 
   Same as :func:`sigma(R,z)` but for the CDM+baryons power spectrum only
+
+
+
+
+
+Additional useful functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. function:: sigma8()
   
@@ -185,6 +212,13 @@ Spectra functions
  .. function:: effective_f_sigma8_spline(z, Nz=20)
   
   Same as :func:`effective_f_sigma8`, but using a spline of Nz evalutations in the range [z-0.1,z+0.1] instead, or [0,0.2] if z<0.1. Uses a CubicSpline for taking the derivative.
+
+
+
+
+
+
+
 
 Less used functions
 ^^^^^^^^^^^^^^^^^^^
