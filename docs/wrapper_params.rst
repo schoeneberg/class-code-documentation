@@ -139,6 +139,15 @@ These are convenience functions for you to get to your favorite quantities faste
   
   Get reducded baryon energy density fraction :math:`\Omega_b h^2 = \rho_{b,0}/\mathrm{\rho_{\mathrm{crit},0}} \cdot h^2` 
 
+ .. function:: Omega0_k()
+  
+  Get reducded curvature energy density fraction :math:`\Omega_k = \rho_{k,0}/\mathrm{\rho_{\mathrm{crit},0}}` 
+
+ .. function:: Omega0_cdm()
+  
+  Get radiation energy density fraction :math:`\Omega_\mathrm{cdm} = \rho_{\mathrm{cdm},0}/\mathrm{\rho_{\mathrm{crit},0}}`
+  
+
  .. function:: theta_s_100()
   
   Get sound horizon angle :math:`100 \theta_s = 100 r_s/r_A`
