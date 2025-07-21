@@ -17,6 +17,8 @@ Main usage
   Tell classy to use certain input parameters, described in the python dictionary ``input``.
   Can also be passed as explicit keywords
 
+  For more info, look at :ref:`wrapper-set`.
+
   :param input: Input parameters
   :type input: dict
 
