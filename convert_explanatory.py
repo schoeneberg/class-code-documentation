@@ -116,7 +116,7 @@ def convert_explanatory_function(custom_content_string):
             continue # Move to the next line after the header
 
         # Check for presence of '=' sign (relevant for examples)
-        has_equals_sign = '=' in line # Use original line for this check
+        is_example_line = ('=' in line) and not line.lstrip().startswith("# ")
 
         # Check if line starts with '#' (relevant for all comments)
         starts_with_hash = stripped_line.startswith('#')
@@ -134,10 +134,10 @@ def convert_explanatory_function(custom_content_string):
             label = start_comment_match.group(1) # e.g., '1.m'
             description_text = start_comment_match.group(3) # e.g., 'Do you want a warning...'
 
-            escaped_first_line = f"{label} {description_text}"
+            escaped_first_line = f"{label}) {description_text}"
             current_comment_lines.append(escaped_first_line)
 
-        elif has_equals_sign:
+        elif is_example_line:
             # 3) It's an example line (contains '=')
             # If we were in a description block, this means the description ended and examples begin
             if in_comment_block:
