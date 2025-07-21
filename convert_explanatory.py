@@ -3,18 +3,13 @@ import re
 # Output = finished, polished .rst file to be directly included
 def convert_explanatory(fc):
   # For now, just return dummy input independently of file contents, TODO:: implement actual logic
-  pretext =  """.. _wrapper-set:
+  pretext =  """.. _explanatory:
 
-The .set() function
+The explanatory.ini
 ===================
 
-.. function:: set(input)
-
-  Tell classy to use certain input parameters, described in the python dictionary ``input``.
-  Can also be passed as explicit keywords
-
-  :param input: Input parameters
-  :type input: dict
+These are all the possible input parameters. You will want to replace the shown examples below with actual python dictionary assignments,
+such as ``parameter = value`` becomes ``{'parameter':'value'}``.
 
 .. note::
   This documentation is based off of the contents of explanatory.ini and is automatically generated. In the optimal case, this would always work without problems. 
