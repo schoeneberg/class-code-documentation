@@ -40,3 +40,4 @@ Table of contents
    wrapper_th
    wrapper_ha
    wrapper_others
+   explanatory
