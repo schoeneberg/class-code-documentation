@@ -34,6 +34,7 @@ Table of contents
    :caption: Python wrapper documentation
 
    wrapper
+   wrapper_set
    wrapper_params
    wrapper_bg
    wrapper_th
