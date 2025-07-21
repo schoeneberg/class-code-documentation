@@ -10,7 +10,7 @@ EXTERNAL_REPO_BRANCH = "master"
 # Format: { 'path/in/external/repo/file.ext': 'local/path/to/save/file.ext' }
 FILES_TO_DOWNLOAD = {
     "explanatory.ini": "explanatory.ini",
-    "notebooks/example.py": "example.py",
+    "scripts/warmup.py": "warmup.py",
 }
 
 # Directory where files will be saved locally (relative to script execution)
