@@ -31,7 +31,7 @@ Table of contents
    installation
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Python wrapper documentation
 
    wrapper
