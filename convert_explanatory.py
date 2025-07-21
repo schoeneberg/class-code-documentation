@@ -19,7 +19,7 @@ The .set() function
 .. note::
   This documentation is based off of the contents of explanatory.ini and is automatically generated. In the optimal case, this would always work without problems. 
   However, if you see weird things, it might be because some non-standard things have been added to explanatory.ini or it has been majorly restructured. In either case, please let us know so we can update this documentation.
-  You can always have a look at the underlying file :ref:`eplanatory.ini <https://github.com/lesgourg/class_public/blob/master/explanatory.ini>`_.
+  You can always have a look at the underlying file `eplanatory.ini <https://github.com/lesgourg/class_public/blob/master/explanatory.ini>`_ .
 
 Detailed list of input parameters
 ---------------------------------
