@@ -31,6 +31,7 @@ Table of contents
    installation
 
 .. toctree::
+   :maxdepth: 2
    :caption: Python wrapper documentation
 
    wrapper
@@ -40,4 +41,7 @@ Table of contents
    wrapper_th
    wrapper_ha
    wrapper_others
+
+.. toctree::
+   :caption: C code references
    explanatory
