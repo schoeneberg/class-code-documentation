@@ -71,7 +71,7 @@ with open(custom_file_to_convert, 'r', encoding='utf-8') as f:
     new_content = convert_explanatory(custom_content)
 
 # Now put the new content into the generated file
-generated_rst_path = "docs/wrapper_set.rst"
+generated_rst_path = "docs/explanatory.rst"
 with open(generated_rst_path, "w", encoding="utf-8") as f:
     f.write(new_content)
 print(f"Successfully generated RST file: {generated_rst_path}")
