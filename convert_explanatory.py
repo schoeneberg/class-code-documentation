@@ -167,6 +167,8 @@ def convert_explanatory_function(custom_content_string):
 
     return rst_chunks
 
+
+
 def format_comment_block_as_rst_list_item(comment_lines, example_lines):
     """
     Formats a list of cleaned comment lines into an RST bullet list item,
@@ -186,75 +188,62 @@ def format_comment_block_as_rst_list_item(comment_lines, example_lines):
 
     # If there are comment lines, format them as a bullet list
     if comment_lines:
-        # The first line already contains the "1) " or "2.a) " part.
-        # We'll use a bullet point for the list item itself.
-        
-        # Calculate the indent for continuation lines based on the first line's actual content.
-        # 1. Start with the bullet indent (2 characters: "* ")
-        bullet_indent = " " * 2 
+        # Determine the initial indent for the line-block directive
+        # The line-block directive itself needs to be indented relative to the bullet.
+        # Bullet: "* " (2 spaces)
+        # Line block directive: ".. line-block::" (14 chars)
+        # So it needs to be indented by 2 spaces from the bullet.
+        # Total indent for ".. line-block::" from left margin is 2 (for bullet) + 2 (for directive indent) = 4 spaces.
+        line_block_directive_indent = " " * 4 
 
-        # 2. Add the content of the first line directly after the bullet.
-        #    This `comment_lines[0]` should be "2) Amount of information..." (clean after stripping # )
-        first_line_content = comment_lines[0]
-        rst_formatted_output.append("* " + first_line_content + "\n")
- 
-        # 3. Determine the actual hanging indent required:
-        #    It should be the length of the bullet_indent plus the length of the *label* part of the first line.
-        #    E.g., for "* 2) Amount...", the hanging indent should be aligned with 'A'.
-        #    If `first_line_content` is "2) Amount...", `len("2) ")` is 4.
-        #    So, total indent for continuation lines should be `len(bullet_indent) + len("2) ")` = 2 + 4 = 6 spaces.
-        #    However, RST standard usually recommends a consistent minimum indent, not necessarily aligning
-        #    with the exact start of the content of the first line if it's too far.
-        #    A standard choice that usually works well: `len("* ") + 2` or `len("* ") + len("1) ")`
-        #    Let's stick with a fixed `4` as it's a common value for readability, but apply it carefully.
-        #    If `comment_lines[0]` contains the numbering like '2)', we need the continuation lines
-        #    to be indented such that they align with the *start of the descriptive text* following '2) '.
-        
-        # New approach: Figure out the length of the first line up to where the descriptive text starts.
-        # E.g., for "2) Amount...", `prefix_len` would be `len("2) ")` = 4.
-        # Total indent: `len("* ")` (2) + `prefix_len`.
-        
-        # Extract just the label part (e.g., "2)", "2.a)") from the first line
-        label_match = re.match(r'^\s*(\d+(\.\w+)*)\)\s*(.*)$', first_line_content)
-        if label_match:
-            label_part = label_match.group(1) + ") " # e.g., "2) " or "2.a) "
-            # Calculate the indent needed to align with the text after the label
-            # = (length of bullet) + (length of label part)
-            continuation_indent_len = len(bullet_indent) + len(label_part) +1
-        else:
-            # Fallback if no specific label like "2)" is found (shouldn't happen with current logic)
-            continuation_indent_len = 4 # Default to 4 spaces
+        # The content of the line-block starts with a '| ' (2 chars)
+        # It's usually indented by 0 spaces relative to the line-block directive.
+        # So the actual text starts 4 + 2 = 6 spaces from the left margin.
+        line_block_content_indent = line_block_directive_indent # Same indent as directive for content's pipe
 
-        continuation_indent = " " * continuation_indent_len 
 
-        for line in comment_lines[1:]:
-            # If a line is empty after stripping (e.g., from `#` in source),
-            # it should become an indented blank line to maintain RST paragraph flow.
-            if line.strip() == '':
-                rst_formatted_output.append(continuation_indent + "\n") # Indent a blank line
+        # Start the bullet list item
+        rst_formatted_output.append("* \n") # Start the bullet, then newline to put line-block on next line
+
+        # Add the line-block directive itself, indented
+        rst_formatted_output.append(line_block_directive_indent + ".. line-block::\n")
+        rst_formatted_output.append("\n") # Blank line after directive (standard practice)
+
+        # Add each comment line as a line in the line-block
+        # Each line needs to start with '| ' and then be indented relative to the directive.
+        # The content will start after the '| '
+        for i, line in enumerate(comment_lines):
+            # For the first line, just prepend '| '
+            # For subsequent lines, if they were meant to be new paragraphs in the source (e.g., blank lines,
+            # or significantly different indentation), we want to preserve that by making them new lines in the line-block.
+            # We strip the line content to normalize, then add '| ' and our desired indent.
+            
+            # If the original source line was e.g. `#    Text`, after `re.sub(r'^\s*#\s*', '', line)` it became `   Text`.
+            # We need to preserve that leading indent within the line-block if it was intentional.
+            
+            # Let's try to remove all leading spaces and then just prepend our standard `| `
+            # to make it clean. If original indentation was crucial within the prose, we can adjust.
+            clean_line_content = line.lstrip() # Remove any leading spaces from our pre-processed line
+
+            # If it's a blank line from source, just add an indented blank line within the line-block
+            if clean_line_content == '':
+                rst_formatted_output.append(line_block_content_indent + "|\n") # Blank line within line-block
             else:
-                # Append with the hanging indent. `line` already has its `# ` stripped.
-                rst_formatted_output.append(continuation_indent + line.strip() + "\n")
-
+                rst_formatted_output.append(line_block_content_indent + "| " + clean_line_content + "\n")
 
     # Append example lines as a code-block (if any)
     if example_lines:
-        # Add a blank line for separation before the code block IF there were comment lines,
-        # AND if the previous line wasn't already a blank line (to avoid double blanks).
-        if comment_lines and not rst_formatted_output[-1].strip(): # check if last line was effectively blank (e.g. from an empty comment line)
-            pass # No need for extra blank line, one already exists
-        elif comment_lines: # If there were comments, add a blank line for separation
-             rst_formatted_output.append("\n")
+        # Add a blank line for separation before the code block if there were comments AND
+        # if the line-block just ended (i.e., not already a blank line)
+        if comment_lines and rst_formatted_output and rst_formatted_output[-1].strip() != "":
+            rst_formatted_output.append("\n")
 
-        # The code block needs to be indented relative to the bullet item.
-        # Bullet `* ` is 2 chars. `first_line_of_item` starts after that.
-        # A code block inside a list item needs to be at least indented by `len(bullet) + 1` space.
-        # A common practice is 6 spaces total (4 for bullet indent + 2 for code block).
-        code_block_indent = " " * 6
+        # Code block indent needs to be consistent and deep enough.
+        # A common practice is 6 spaces total (bullet + directive indent + 2).
+        code_block_indent = " " * 6 
 
         rst_formatted_output.append(code_block_indent + ".. code-block:: none\n\n")
         for example_line in example_lines:
-            # Code block content is indented by 3 more spaces from the code-block directive.
             rst_formatted_output.append(code_block_indent + "   " + example_line + "\n")
 
     rst_formatted_output.append("\n") # Blank line after the entire block for separation
