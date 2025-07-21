@@ -63,7 +63,7 @@ print(f"Proceeding to convert custom file: {custom_file_to_convert}")
 # This logic will use custom_file_to_convert as input
 # And output RST files into your main docs directory, e.g., 'docs/generated_docs.rst'
 
-from .convert_explanatory import convert_explanatory
+from convert_explanatory import convert_explanatory
 
 # Example of reading the downloaded custom file:
 with open(custom_file_to_convert, 'r', encoding='utf-8') as f:
