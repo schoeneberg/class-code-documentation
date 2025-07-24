@@ -26,4 +26,8 @@ General parameters
 
   If you want the perturbations **at a fixed wavenumber** (for multiple times), see instead ``'k_output_values'``.
 
-  For all the possible options, see the :ref:`explanatory`
+  For all the possible options, see :ref:`explanatory`.
+
+* ``modes``
+
+  Here you can control if you 
