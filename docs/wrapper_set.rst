@@ -21,7 +21,9 @@ General parameters
   
   Examples of commonly needed output options:
     * ``'mPk'`` for :func:`get_pk_all` or :func:`sigma8` or anything else related to :math:`P(k,z)`
-    * ``'tCl, pCl, lCl'`` for the :func:`lensed_cl` (coupled with ``{'lensing':'yes'}``)
+    * ``'tCl, pCl, lCl'`` for the :func:`lensed_cl` (coupled with ``{'lensing':'yes'}``), which computes the :math:`C_\ell` angular power spectra
     * ``'mTk, vTk'`` for the transfer functions, :func:`get_transfer`, e.g. for N-body initial conditions. These are the (gauge-transformed) perturbations **at a fixed time**
 
   If you want the perturbations **at a fixed wavenumber** (for multiple times), see instead ``'k_output_values'``.
+
+  For all the possible options, see the :ref:`explanatory.ini`
